@@ -13,6 +13,11 @@ defmodule Shin.MixProject do
             shin_web: :permanent
           ]
         ],
+        admin: [
+          applications: [
+            shin_admin: :permanent
+          ]
+        ],
         worker: [
           applications: [
             shin_worker: :permanent

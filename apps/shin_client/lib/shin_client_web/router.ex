@@ -19,8 +19,5 @@ defmodule ShinClientWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ShinClientWeb do
-  #   pipe_through :api
-  # end
+  forward("/api", ShinApiClientWeb.Router)
 end

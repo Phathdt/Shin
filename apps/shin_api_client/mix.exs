@@ -1,9 +1,9 @@
-defmodule ShinClient.MixProject do
+defmodule ShinApiClient.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :shin_client,
+      app: :shin_api_client,
       version: "0.1.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
@@ -23,7 +23,7 @@ defmodule ShinClient.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {ShinClient.Application, []},
+      mod: {ShinApiClient.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -38,8 +38,6 @@ defmodule ShinClient.MixProject do
   defp deps do
     [
       {:shin_core, in_umbrella: true},
-      {:shin_api_client, in_umbrella: true},
-      {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"}
     ]
@@ -53,7 +51,7 @@ defmodule ShinClient.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup", "cmd npm install --prefix assets"],
+      setup: ["deps.get", "ecto.setup"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]

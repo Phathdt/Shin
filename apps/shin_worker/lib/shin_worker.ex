@@ -1,0 +1,2 @@
+defmodule ShinWorker do
+end

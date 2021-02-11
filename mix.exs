@@ -8,9 +8,9 @@ defmodule Shin.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       releases: [
-        web: [
+        client: [
           applications: [
-            shin_web: :permanent
+            shin_client: :permanent
           ]
         ],
         admin: [

@@ -1,4 +1,4 @@
-# ShinWeb
+# ShinClient
 
 To start your Phoenix server:
 

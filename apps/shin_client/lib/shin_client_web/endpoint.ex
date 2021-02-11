@@ -1,16 +1,16 @@
-defmodule ShinWebWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :shin_web
+defmodule ShinClientWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :shin_client
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_shin_web_key",
-    signing_salt: "7I0T0YcE"
+    key: "_shin_client_key",
+    signing_salt: "Zat86hz2"
   ]
 
-  socket "/socket", ShinWebWeb.UserSocket,
+  socket "/socket", ShinClientWeb.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -20,7 +20,7 @@ defmodule ShinWebWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :shin_web,
+    from: :shin_client,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
@@ -30,7 +30,7 @@ defmodule ShinWebWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :shin_web
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :shin_client
   end
 
   plug Plug.RequestId
@@ -44,5 +44,5 @@ defmodule ShinWebWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug ShinWebWeb.Router
+  plug ShinClientWeb.Router
 end

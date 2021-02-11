@@ -1,4 +1,4 @@
-defmodule ShinWebWeb.Telemetry do
+defmodule ShinClientWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -31,11 +31,11 @@ defmodule ShinWebWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("shin_web.repo.query.total_time", unit: {:native, :millisecond}),
-      summary("shin_web.repo.query.decode_time", unit: {:native, :millisecond}),
-      summary("shin_web.repo.query.query_time", unit: {:native, :millisecond}),
-      summary("shin_web.repo.query.queue_time", unit: {:native, :millisecond}),
-      summary("shin_web.repo.query.idle_time", unit: {:native, :millisecond}),
+      summary("shin_client.repo.query.total_time", unit: {:native, :millisecond}),
+      summary("shin_client.repo.query.decode_time", unit: {:native, :millisecond}),
+      summary("shin_client.repo.query.query_time", unit: {:native, :millisecond}),
+      summary("shin_client.repo.query.queue_time", unit: {:native, :millisecond}),
+      summary("shin_client.repo.query.idle_time", unit: {:native, :millisecond}),
 
       # VM Metrics
       summary("vm.memory.total", unit: {:byte, :kilobyte}),
@@ -49,7 +49,7 @@ defmodule ShinWebWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {ShinWebWeb, :count_users, []}
+      # {ShinClientWeb, :count_users, []}
     ]
   end
 end

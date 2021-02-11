@@ -1,5 +1,5 @@
-defmodule ShinWebWeb.ErrorView do
-  use ShinWebWeb, :view
+defmodule ShinClientWeb.ErrorView do
+  use ShinClientWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

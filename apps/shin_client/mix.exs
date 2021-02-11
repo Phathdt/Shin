@@ -1,9 +1,9 @@
-defmodule ShinWeb.MixProject do
+defmodule ShinClient.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :shin_web,
+      app: :shin_client,
       version: "0.1.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
@@ -11,7 +11,7 @@ defmodule ShinWeb.MixProject do
       lockfile: "../../mix.lock",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      compilers: [:phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -23,7 +23,7 @@ defmodule ShinWeb.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {ShinWeb.Application, []},
+      mod: {ShinClient.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -37,10 +37,16 @@ defmodule ShinWeb.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:shin_core, in_umbrella: true},
+      {:phoenix, "~> 1.5.7"},
+      {:phoenix_ecto, "~> 4.1"},
+      {:ecto_sql, "~> 3.4"},
+      {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:gettext, "~> 0.11"}
+      {:telemetry_metrics, "~> 0.4"},
+      {:telemetry_poller, "~> 0.4"},
+      {:jason, "~> 1.0"},
+      {:plug_cowboy, "~> 2.0"}
     ]
   end
 

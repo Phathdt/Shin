@@ -1,12 +1,12 @@
-defmodule ShinWebWeb do
+defmodule ShinClientWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use ShinWebWeb, :controller
-      use ShinWebWeb, :view
+      use ShinClientWeb, :controller
+      use ShinClientWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,19 +19,18 @@ defmodule ShinWebWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: ShinWebWeb
+      use Phoenix.Controller, namespace: ShinClientWeb
 
       import Plug.Conn
-      import ShinWebWeb.Gettext
-      alias ShinWebWeb.Router.Helpers, as: Routes
+      alias ShinClientWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/shin_web_web/templates",
-        namespace: ShinWebWeb
+        root: "lib/shin_client_web/templates",
+        namespace: ShinClientWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -54,7 +53,6 @@ defmodule ShinWebWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import ShinWebWeb.Gettext
     end
   end
 
@@ -66,9 +64,8 @@ defmodule ShinWebWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import ShinWebWeb.ErrorHelpers
-      import ShinWebWeb.Gettext
-      alias ShinWebWeb.Router.Helpers, as: Routes
+      import ShinClientWeb.ErrorHelpers
+      alias ShinClientWeb.Router.Helpers, as: Routes
     end
   end
 

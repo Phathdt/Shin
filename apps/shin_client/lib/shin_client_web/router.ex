@@ -1,5 +1,5 @@
-defmodule ShinWebWeb.Router do
-  use ShinWebWeb, :router
+defmodule ShinClientWeb.Router do
+  use ShinClientWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,14 +13,14 @@ defmodule ShinWebWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ShinWebWeb do
+  scope "/", ShinClientWeb do
     pipe_through :browser
 
     get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ShinWebWeb do
+  # scope "/api", ShinClientWeb do
   #   pipe_through :api
   # end
 end

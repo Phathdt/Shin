@@ -1,6 +1,6 @@
 use Mix.Config
 
-config :shin_web, ShinWebWeb.Endpoint,
+config :shin_client, ShinClientWeb.Endpoint,
   url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 

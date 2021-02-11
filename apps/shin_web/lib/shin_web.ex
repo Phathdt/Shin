@@ -1,2 +1,0 @@
-defmodule ShinWeb do
-end

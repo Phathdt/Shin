@@ -1,9 +1,9 @@
-defmodule ShinAdmin.MixProject do
+defmodule ShinApiAdmin.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :shin_admin,
+      app: :shin_api_admin,
       version: "0.1.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
@@ -11,7 +11,7 @@ defmodule ShinAdmin.MixProject do
       lockfile: "../../mix.lock",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      compilers: [:phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -23,7 +23,7 @@ defmodule ShinAdmin.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {ShinAdmin.Application, []},
+      mod: {ShinApiAdmin.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -38,8 +38,6 @@ defmodule ShinAdmin.MixProject do
   defp deps do
     [
       {:shin_core, in_umbrella: true},
-      {:shin_api_admin, in_umbrella: true},
-      {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"}
     ]
@@ -53,7 +51,7 @@ defmodule ShinAdmin.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup", "cmd npm install --prefix assets"],
+      setup: ["deps.get", "ecto.setup"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]

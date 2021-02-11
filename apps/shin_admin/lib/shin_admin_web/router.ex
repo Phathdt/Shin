@@ -19,8 +19,5 @@ defmodule ShinAdminWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ShinAdminWeb do
-  #   pipe_through :api
-  # end
+  forward("/api", ShinApiAdminWeb.Router)
 end

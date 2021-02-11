@@ -26,6 +26,7 @@ defmodule ShinWorker.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:shin_mailer, in_umbrella: true},
       {:shin_core, in_umbrella: true}
     ]
   end

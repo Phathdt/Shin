@@ -10,3 +10,5 @@ config :verk,
   fail_job_log_level: :info,
   generate_node_id: true,
   redis_url: {:system, "REDIS_URL"}
+
+import_config "#{Mix.env()}.exs"

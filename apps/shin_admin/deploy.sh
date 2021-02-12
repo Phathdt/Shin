@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# docker rm -f shin-admin
+docker rm -f shin-admin
 
 docker run -d --name shin-admin \
   --network my-net \

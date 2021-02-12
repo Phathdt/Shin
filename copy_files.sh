@@ -1,10 +1,7 @@
 #!/bin/bash
 
-echo $APP
-echo $params
+cp apps/shin_$APP/Dockerfile .
 
-cp apps/shin_${params.APP}/Dockerfile .
-
-cp apps/shin_${params.APP}/deploy.sh .
+cp apps/shin_$APP/deploy.sh .
 
 ls -lha

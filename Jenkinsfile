@@ -19,8 +19,7 @@ pipeline{
     stages{
         stage("Copy dockerfile and deploy file"){
             steps {
-                cp "apps/shin_$PARAMS/Dockerfile" .
-                cp "apps/shin_$PARAMS/deploy.sh" .
+                sh './copy_file.sh'
             }
         }
         // stage("build image docker"){

@@ -12,11 +12,7 @@ pipeline{
 
 
     parameters {
-      choice(
-          name: 'APP',
-          choices: ['client', 'admin', 'mailer],
-          description: 'Select App'
-      )
+      choice(name: 'APP', choices: ['client', 'admin', 'mailer'], description: 'Select App')
     }
 
 

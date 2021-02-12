@@ -16,7 +16,8 @@ COPY apps/shin_client/assets/package.json ./apps/shin_client/assets/package.json
 COPY apps/shin_client/assets/yarn.lock ./apps/shin_client/assets/yarn.lock
 RUN cd apps/shin_client/assets && yarn install && cd ../../..;
 COPY apps/shin_client/assets .apps/shin_client/assets
-RUN cd apps/shin_client/assets && yarn deploy
+RUN cd apps/shin_client/assets && ls -lha && yarn deploy
+# RUN cd apps/shin_client/assets && yarn deploy
 
 FROM build-backend as build-final
 COPY --from=build-frontend --chown=nobody:nobody /apps/shin_client/assets ./apps/shin_client/assets

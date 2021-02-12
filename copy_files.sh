@@ -1,8 +1,13 @@
 #!/bin/bash
 
-echo "apps/shin_${params.APP}/Dockerfile"
+APP=$1
 
-cp "apps/shin_${params.APP}/Dockerfile" .
+echo $APP
 
-cp "apps/shin_${params.APP}/deploy.sh" .
+echo "apps/shin_${APP}/Dockerfile"
+
+cp "apps/shin_${APP}/Dockerfile" .
+
+cp "apps/shin_${APP}/deploy.sh" .
+
 ls -lha

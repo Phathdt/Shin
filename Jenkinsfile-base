@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+
+    environment {
+        DOCKER_IMAGE = 'shin_base'
+    }
+
+    options {
+        ansiColor('xterm')
+    }
+
+
+    stages{
+        stage("Copy files"){
+            steps {
+                cp apps/shin_core/Dockerfile .
+            }
+        }
+
+        stage("build image docker"){
+            steps {
+                echo '****** Build and tag image ******'
+
+                script {
+                    docker.build DOCKER_IMAGE + ":latest"
+                }
+            }
+        }
+    }
+}

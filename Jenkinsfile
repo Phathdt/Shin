@@ -19,7 +19,7 @@ pipeline{
     stages{
         stage("Copy files"){
             steps {
-                sh './copy_files.sh' $APP
+                sh './copy_files.sh'
             }
         }
         // stage("build image docker"){

@@ -37,7 +37,9 @@ defmodule ShinMailer.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:shin_core, in_umbrella: true}
+      {:shin_core, in_umbrella: true},
+      {:phoenix_html, "~> 2.11"},
+      {:bamboo, "~> 1.7.0"}
     ]
   end
 

@@ -13,7 +13,9 @@ pipeline{
     stages{
         stage("Copy files"){
             steps {
-                cp apps/shin_core/Dockerfile .
+                sh '''#!/bin/bash
+                    cp apps/shin_core/Dockerfile .
+                '''
             }
         }
 

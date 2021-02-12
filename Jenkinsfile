@@ -2,7 +2,7 @@ pipeline{
     agent any
 
     environment {
-        DOCKER_IMAGE = 'shin_'
+        DOCKER_IMAGE = 'shin-'
         TAG = "${GIT_BRANCH.split("/")[1]}-${GIT_COMMIT.substring(0, 6)}-${BUILD_NUMBER}"
     }
 

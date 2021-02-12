@@ -18,11 +18,10 @@ COPY apps/shin_client/assets/yarn.lock ./yarn.lock
 RUN yarn install
 COPY apps/shin_client/assets/ ./
 RUN yarn deploy
-RUN ls -lha
-# RUN cd apps/shin_client/assets && yarn deploy
 
 FROM build-backend as build-final
 COPY --from=build-frontend --chown=nobody:nobody /app/apps/shin_client/assets ./apps/shin_client/assets
+COPY --from=build-frontend --chown=nobody:nobody /app/apps/shin_client/priv ./apps/shin_client/priv
 RUN cd apps/shin_client && mix do compile, phx.digest && cd ../..;
 RUN mix release client
 

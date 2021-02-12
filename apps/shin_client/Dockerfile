@@ -23,7 +23,6 @@ FROM build-backend as build-final
 COPY --from=build-frontend --chown=nobody:nobody /app/apps/shin_client/assets ./apps/shin_client/assets
 COPY --from=build-frontend --chown=nobody:nobody /app/apps/shin_client/priv ./apps/shin_client/priv
 RUN cd apps/shin_client && mix do compile, phx.digest && cd ../..;
-RUN ls -lha ./apps/shin_core
 RUN mix release client
 
 FROM alpine:3.12
@@ -34,4 +33,4 @@ USER nobody:nobody
 COPY --from=build-final --chown=nobody:nobody /app/_build/prod/rel/client ./
 ENV HOME=/app
 EXPOSE 6000
-CMD bin/client eval "Client.Release.migrate" && bin/client start
+CMD bin/client eval "ShinCore.Release.migrate" && bin/client start

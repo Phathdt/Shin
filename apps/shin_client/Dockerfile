@@ -37,4 +37,5 @@ USER nobody:nobody
 COPY --from=build --chown=nobody:nobody /app/_build/prod/rel/client ./
 ENV HOME=/app
 
+EXPOSE 4000
 CMD bin/client start

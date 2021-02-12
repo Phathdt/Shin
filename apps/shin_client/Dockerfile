@@ -13,10 +13,9 @@ RUN cd apps/shin_client mix do compile
 
 FROM build as build-frontend
 WORKDIR /apps/shin_client/assets
-RUN echo $PWD
 COPY apps/shin_client/assets/package.json ./
 COPY apps/shin_client/assets/yarn.lock ./yarn.lock
-RUN cd apps/shin_client/assets && yarn install
+RUN yarn install
 COPY apps/shin_client/assets/* ./
 RUN ls -lha
 RUN yarn deploy

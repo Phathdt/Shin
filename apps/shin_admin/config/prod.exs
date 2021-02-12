@@ -1,6 +1,7 @@
 use Mix.Config
 
 config :shin_admin, ShinAdminWeb.Endpoint,
+  url: [host: "35.213.174.112", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production

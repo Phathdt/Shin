@@ -12,7 +12,7 @@ COPY apps/shin_client/mix.exs ./apps/shin_client/mix.exs
 RUN cd apps/shin_client mix do compile
 
 FROM build as build-frontend
-WORKDIR /apps/shin_client/assets
+WORKDIR /app/apps/shin_client/assets
 COPY apps/shin_client/assets/package.json ./
 COPY apps/shin_client/assets/yarn.lock ./yarn.lock
 RUN yarn install

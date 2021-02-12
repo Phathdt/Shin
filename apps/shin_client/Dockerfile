@@ -20,6 +20,7 @@ RUN mix do deps.get, deps.compile
 # install shin client FE dependencies
 COPY apps/shin_client/assets/package.json ./apps/shin_client/assets/package.json
 COPY apps/shin_client/assets/yarn.lock ./apps/shin_client/assets/yarn.lock
+RUN cd apps/shin_client && ls -lha && cd ../..
 COPY apps/shin_client/priv ./apps/shin_client/priv
 RUN cd apps/shin_client/assets && yarn install && cd ../../..;
 

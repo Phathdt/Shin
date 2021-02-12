@@ -22,7 +22,7 @@ RUN yarn deploy
 # RUN cd apps/shin_client/assets && yarn deploy
 
 FROM build-backend as build-final
-COPY --from=build-frontend --chown=nobody:nobody /apps/shin_client/assets ./apps/shin_client/assets
+COPY --from=build-frontend --chown=nobody:nobody /app/apps/shin_client/assets ./apps/shin_client/assets
 RUN cd apps/shin_client && mix do compile, phx.digest && cd ../..;
 RUN mix release client
 

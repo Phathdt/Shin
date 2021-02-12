@@ -12,11 +12,13 @@ COPY apps/shin_client/mix.exs ./apps/shin_client/mix.exs
 RUN cd apps/shin_client mix do compile
 
 FROM build as build-frontend
-COPY apps/shin_client/assets/package.json ./apps/shin_client/assets/package.json
-COPY apps/shin_client/assets/yarn.lock ./apps/shin_client/assets/yarn.lock
-RUN cd apps/shin_client/assets && yarn install && cd ../../..;
-COPY apps/shin_client/assets .apps/shin_client/assets
-RUN cd apps/shin_client/assets && ls -lha && yarn deploy
+WORKDIR /apps/shin_client/assets
+COPY apps/shin_client/assets/package.json ./
+COPY apps/shin_client/assets/yarn.lock ./yarn.lock
+RUN cd apps/shin_client/assets && yarn install
+COPY apps/shin_client/assets/* ./
+RUN ls -lha
+RUN yarn deploy
 # RUN cd apps/shin_client/assets && yarn deploy
 
 FROM build-backend as build-final

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker rm -f shin-worker
+# docker rm -f shin-worker
 
 docker run -d --name shin-worker \
   --network my-net \

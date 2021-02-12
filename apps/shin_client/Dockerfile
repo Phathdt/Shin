@@ -32,6 +32,5 @@ RUN chown nobody:nobody /app
 USER nobody:nobody
 COPY --from=build-final --chown=nobody:nobody /app/_build/prod/rel/client ./
 ENV HOME=/app
-
 EXPOSE 6000
 CMD bin/client start

@@ -7,3 +7,5 @@ config :shin_admin, ShinAdminWeb.Endpoint,
 
 # Do not print debug messages in production
 config :logger, level: :info
+
+config :shin_admin, ShinAdminWeb.Endpoint, server: true

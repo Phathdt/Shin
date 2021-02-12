@@ -37,4 +37,6 @@ USER nobody:nobody
 COPY --from=build --chown=nobody:nobody /app/_build/prod/rel/admin ./
 ENV HOME=/app
 
+EXPOSE 7000
+
 CMD bin/admin start

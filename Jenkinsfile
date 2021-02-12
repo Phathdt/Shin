@@ -17,9 +17,9 @@ pipeline{
 
 
     stages{
-        stage("Copy dockerfile and deploy file"){
+        stage("Copy files"){
             steps {
-                sh './copy_file.sh'
+                sh './copy_files.sh'
             }
         }
         // stage("build image docker"){

@@ -1,6 +1,6 @@
-echo "apps/shin_${PARAMS.APP}/Dockerfile"
+echo "apps/shin_${params.APP}/Dockerfile"
 
-cp "apps/shin_${PARAMS.APP}/Dockerfile" .
+cp "apps/shin_${params.APP}/Dockerfile" .
 
-cp "apps/shin_${PARAMS.APP}/deploy.sh" .
+cp "apps/shin_${params.APP}/deploy.sh" .
 ls -lha

@@ -15,7 +15,7 @@ defmodule ShinMailerWeb.TestMailer do
     |> put_text_layout({ShinMailerWeb.LayoutView, "email.text"})
   end
 
-  def perform(email) do
+  def perform(%{"email" => email}) do
     base_email()
     |> to(email)
     |> subject("Test Mailer")

@@ -7,6 +7,7 @@ defmodule ShinCore.Application do
 
   def start(_type, _args) do
     children = [
+      {Redix, {System.get_env("REDIS_URL"), [name: :redix_api]}},
       # Start the Ecto repository
       ShinCore.Repo,
       # Start the PubSub system

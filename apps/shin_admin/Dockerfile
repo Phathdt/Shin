@@ -23,14 +23,14 @@ FROM build-backend as build-final
 COPY --from=build-frontend --chown=nobody:nobody /app/apps/shin_admin/assets ./apps/shin_admin/assets
 COPY --from=build-frontend --chown=nobody:nobody /app/apps/shin_admin/priv ./apps/shin_admin/priv
 RUN cd apps/shin_admin && mix do compile, phx.digest && cd ../..;
-RUN mix release client
+RUN mix release admin
 
 FROM alpine:3.12
 RUN apk add --no-cache openssl ncurses-libs
 WORKDIR /app
 RUN chown nobody:nobody /app
 USER nobody:nobody
-COPY --from=build-final --chown=nobody:nobody /app/_build/prod/rel/client ./
+COPY --from=build-final --chown=nobody:nobody /app/_build/prod/rel/admin ./
 ENV HOME=/app
 EXPOSE 7000
-CMD bin/client start
+CMD bin/admin eval "ShinCore.Release.migrate" && bin/admin start

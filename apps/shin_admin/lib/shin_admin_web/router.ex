@@ -1,5 +1,6 @@
 defmodule ShinAdminWeb.Router do
   use ShinAdminWeb, :router
+  use VerkWeb.MountRoute, path: "/verk"
 
   pipeline :browser do
     plug :accepts, ["html"]

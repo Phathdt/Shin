@@ -41,7 +41,8 @@ defmodule ShinAdmin.MixProject do
       {:shin_api_admin, in_umbrella: true},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:gettext, "~> 0.11"}
+      {:gettext, "~> 0.11"},
+      {:verk_web, "~> 1.6"}
     ]
   end
 
